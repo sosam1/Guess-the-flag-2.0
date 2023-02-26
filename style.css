@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/HD-wallpaper-world-flags-blue-england-flag-flagblanc-grunge-red-roug-spain.jpg);
+
+}
+
+.main{
+    display: block;
+    justify-content: center;
+}
+
+.contenedor{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 400px;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-image{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    border: solid 1px #000000;
+}
+
+#flag-img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.modal-css {
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    user-select: none;
+    width: 500px;
+}
+
+.mensaje-container{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+    width: 400px;
+    height: 60px;
+}
+
+#input-respuesta{
+    outline: 0px;
+    border: none;
+    border-bottom: solid 1px black;
+    margin-right: 10px;
+}
+
+#input-respuesta:focus{
+    border-bottom: solid 1px #007bff;
+}
