@@ -27,6 +27,7 @@ body {
     background-color: #FFFFFF;
     width: 500px;
     height: 400px;
+    border-radius: 4px;
 }
 
 .titulo{
@@ -42,7 +43,7 @@ body {
     margin: auto;
     width: 300px;
     height: 200px;
-    border: solid 1px #000000;
+    border: solid 0.5px #000000;
 }
 
 #flag-img{
