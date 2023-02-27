@@ -23,7 +23,7 @@ opcion2.addEventListener("click", function(){
 
 opcion3.addEventListener("click", function(){
 
-    localStorage.setItem("modo de juego", "666")
+    localStorage.setItem("modo de juego", "100000")
 
 })
 
