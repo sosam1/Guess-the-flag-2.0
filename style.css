@@ -30,12 +30,18 @@ body {
     border-radius: 4px;
 }
 
-.titulo{
+.titulo-container{
     display: flex;
     justify-content: center;
     text-align: center;
     margin-bottom: 20px;
 }
+
+.puntuacion{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0px 100px 0px 100px;
+}
+
 
 .container-image{
     display: flex;

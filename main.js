@@ -13,9 +13,6 @@ function sacarTildes(str){
 
 pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
 
-//objeto del pais
-/* console.log(pais_al_azar) */
-
 //usamos la variable url con el parametro
 document.getElementById('flag-img').src = url(pais_al_azar.abbr)
 
@@ -25,13 +22,23 @@ let input_respuesta = document.getElementById("input-respuesta")
 let boton_respuesta = document.getElementById("btnRespuesta")
 let msj_container = document.getElementById("mensaje-container")
 
+
+let contador_de_banderas = document.getElementById("contador-de-banderas") // muestra cuantas banderas se van respondiendo
+let cuenta_banderas = 0 //empieza siendo 0 y suma 1 cada vez que clickean el boton de respuesta
+contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
+
+let score = document.getElementById("score") //para marcar las correctas
+
 function reiniciar(){
     setTimeout(function () {
     pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
     document.getElementById('flag-img').src = url(pais_al_azar.abbr)
     msj_container.innerHTML = ""
     input_respuesta.value = ""
-  }, 1000);
+    //lo de abajo es mas comodo que este aca para que no spameen el click
+    cuenta_banderas++;
+    contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
+  }, 1500);
 }
 
 let correctas = 0
@@ -58,13 +65,19 @@ boton_respuesta.addEventListener("click", function(e){
         </div>
         
         `
+
         correctas++;
+
+        score.innerHTML = `
         
+        puntuación: ${correctas}
+        
+        `        
     } else{
         msj_container.innerHTML = `
         
         <div class="alert alert-danger" role="alert">
-            Error, Mejor suerte la proxima!
+            Error, El país era ${pais_al_azar.name}
         </div>
 
         `
@@ -80,6 +93,7 @@ boton_respuesta.addEventListener("click", function(e){
         reiniciar()
     }
 
+    //caso random que un enfermo lo pase 100000 veces
     if(incorrectas > 0 && modoDeJuego == 100000){
         setTimeout(function () {
             window.location.href = "index.html"

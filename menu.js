@@ -3,6 +3,7 @@ let opcion1 = document.getElementById("opcion1")
 let opcion2 = document.getElementById("opcion2")
 let opcion3 = document.getElementById("opcion3")
 
+
 opcion0.addEventListener("click", function(){
 
     localStorage.setItem("modo de juego", "20")
