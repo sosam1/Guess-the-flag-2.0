@@ -72,7 +72,8 @@ boton_respuesta.addEventListener("click", function(e){
         
         puntuación: ${correctas}
         
-        `        
+        `
+        numero += 5
     } else{
         msj_container.innerHTML = `
         
@@ -117,6 +118,9 @@ function conteo(){
     if(numero == 0){
         clearInterval()
         window.location.href = "index.html"
+    }
+    if(numero < 10){
+        timmer.style.color = "#ff0000"
     }
 }
 

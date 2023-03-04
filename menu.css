@@ -123,3 +123,40 @@ body {
 .boton-opcion:disabled {
   cursor: auto;
 }
+
+/* responsive */
+
+@media only screen and (max-width: 320px) {
+
+  .contenedor{
+      width: 250px;
+      height: 480px;
+  }
+
+  .titulo{
+      font-size: 19px;
+  }
+
+  .opciones-container{
+    width: 250px;
+  }
+
+}
+
+@media only screen and (min-width: 375px) and (max-width: 425px) {
+
+  .contenedor{
+      width: 300px;
+      height: 480px;
+  }
+
+  .titulo{
+      font-size: 22px;
+  }
+
+  .opciones-container{
+    width: 250px;
+  }
+
+}
+
