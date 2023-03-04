@@ -22,7 +22,6 @@ let input_respuesta = document.getElementById("input-respuesta")
 let boton_respuesta = document.getElementById("btnRespuesta")
 let msj_container = document.getElementById("mensaje-container")
 
-
 let contador_de_banderas = document.getElementById("contador-de-banderas") // muestra cuantas banderas se van respondiendo
 let cuenta_banderas = 0 //empieza siendo 0 y suma 1 cada vez que clickean el boton de respuesta
 contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
@@ -48,7 +47,6 @@ let x =1
 boton_respuesta.addEventListener("click", function(e){
 
     e.preventDefault()
-    console.log(x)
     x++
     //uso la funcion sacar tildes del principio
 
@@ -67,6 +65,7 @@ boton_respuesta.addEventListener("click", function(e){
         `
 
         correctas++;
+        localStorage.setItem("puntuacion", correctas)
 
         score.innerHTML = `
         
@@ -85,9 +84,9 @@ boton_respuesta.addEventListener("click", function(e){
         incorrectas++;
     }
 
-    if(correctas + incorrectas >= modoDeJuego){
+    if(correctas + incorrectas > modoDeJuego){
         setTimeout(function () {
-            window.location.href = "index.html"
+            window.location.href = "puntuacion.html"
           }, 1000);
 
     }else{
@@ -97,7 +96,7 @@ boton_respuesta.addEventListener("click", function(e){
     //caso random que un enfermo lo pase 100000 veces
     if(incorrectas > 0 && modoDeJuego == 100000){
         setTimeout(function () {
-            window.location.href = "index.html"
+            window.location.href = "puntuacion.html"
           }, 1000);
     }
     
@@ -109,7 +108,7 @@ let modoDeJuego = localStorage.getItem("modo de juego")
 console.log(modoDeJuego)
 
 ////timmer para contrareloj///
-let numero = 60
+let numero = 10
 let timmer = document.getElementById("timmer-container")
 
 function conteo(){
@@ -117,7 +116,7 @@ function conteo(){
     numero--
     if(numero == 0){
         clearInterval()
-        window.location.href = "index.html"
+        window.location.href = "puntuacion.html"
     }
     if(numero < 10){
         timmer.style.color = "#ff0000"
