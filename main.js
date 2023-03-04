@@ -107,6 +107,21 @@ boton_respuesta.addEventListener("click", function(e){
 let modoDeJuego = localStorage.getItem("modo de juego")
 console.log(modoDeJuego)
 
+////timmer para contrareloj///
+let numero = 60
+let timmer = document.getElementById("timmer-container")
+
+function conteo(){
+    timmer.innerHTML = numero
+    numero--
+    if(numero == 0){
+        clearInterval()
+        window.location.href = "index.html"
+    }
+}
+
+
+
 switch (modoDeJuego) {
 
     case "20":
@@ -126,6 +141,13 @@ switch (modoDeJuego) {
 
     case "100000":
             console.log("llego")
-            logicaDelJuego(modoDeJuego)
-            break          
+            logicaDelJuego(100000)
+            break
+    case "contrareloj":
+            logicaDelJuego("ထ")
+            let temporizador = setInterval(() =>{
+                conteo()
+            }, 1000)
+            break
+    
 }
