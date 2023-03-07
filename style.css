@@ -37,6 +37,10 @@ body {
     margin-bottom: 20px;
 }
 
+.titulo-container p{
+    font-size: 35px;
+}
+
 .puntuacion{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0px 100px 0px 100px;

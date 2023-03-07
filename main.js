@@ -72,7 +72,7 @@ boton_respuesta.addEventListener("click", function(e){
         puntuación: ${correctas}
         
         `
-        numero += 5
+        numero += 6
     } else{
         msj_container.innerHTML = `
         
@@ -108,7 +108,7 @@ let modoDeJuego = localStorage.getItem("modo de juego")
 console.log(modoDeJuego)
 
 ////timmer para contrareloj///
-let numero = 10
+let numero = 60
 let timmer = document.getElementById("timmer-container")
 
 function conteo(){
@@ -120,6 +120,8 @@ function conteo(){
     }
     if(numero < 10){
         timmer.style.color = "#ff0000"
+    }else{
+        timmer.style.color = "#000000"
     }
 }
 
@@ -128,22 +130,18 @@ function conteo(){
 switch (modoDeJuego) {
 
     case "20":
-            console.log("llego")
             logicaDelJuego(modoDeJuego)
             break
 
     case "50":
-            console.log("llego")
             logicaDelJuego(modoDeJuego)
             break
 
     case "100":
-            console.log("llego")
             logicaDelJuego(modoDeJuego)
             break
 
     case "100000":
-            console.log("llego")
             logicaDelJuego(100000)
             break
     case "contrareloj":
