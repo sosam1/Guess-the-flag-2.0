@@ -3,152 +3,161 @@ countries = [ { "abbr": "af", "name": "afganistán" }, { "abbr": "ax", "name": "
 
 function logicaDelJuego(modoDeJuego){
 
-//con esto es mas facil leer la bandera al azar. toma como parametro la abreviacion(abbr) de la bandera y la usa en la URL
-let url = (flag) => { return `https://flagcdn.com/w320/${flag}.png` };
+    //con esto es mas facil leer la bandera al azar. toma como parametro la abreviacion(abbr) de la bandera y la usa en la URL
+    let url = (flag) => { return `https://flagcdn.com/w320/${flag}.png` };
 
-//funcion que saca tildes para comparar respuestas
-function sacarTildes(str){
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  } 
+    //funcion que saca tildes para comparar respuestas
+    function sacarTildes(str){
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    } 
 
-pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
-
-//usamos la variable url con el parametro
-document.getElementById('flag-img').src = url(pais_al_azar.abbr)
-
-////Aca empieza la logica a partir de la respuesta ////
-
-let input_respuesta = document.getElementById("input-respuesta")
-let boton_respuesta = document.getElementById("btnRespuesta")
-let msj_container = document.getElementById("mensaje-container")
-
-let contador_de_banderas = document.getElementById("contador-de-banderas") // muestra cuantas banderas se van respondiendo
-let cuenta_banderas = 0 //empieza siendo 0 y suma 1 cada vez que clickean el boton de respuesta
-contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
-
-let score = document.getElementById("score") //para marcar las correctas
-
-function reiniciar(){
-    setTimeout(function () {
     pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
+
+    //usamos la variable url con el parametro
     document.getElementById('flag-img').src = url(pais_al_azar.abbr)
-    msj_container.innerHTML = ""
-    input_respuesta.value = ""
-    //lo de abajo es mas comodo que este aca para que no spameen el click
-    cuenta_banderas++;
+
+    ////Aca empieza la logica a partir de la respuesta ////
+
+    let input_respuesta = document.getElementById("input-respuesta")
+    let boton_respuesta = document.getElementById("btnRespuesta")
+    let msj_container = document.getElementById("mensaje-container")
+
+    let contador_de_banderas = document.getElementById("contador-de-banderas") // muestra cuantas banderas se van respondiendo
+    let cuenta_banderas = 0 //empieza siendo 0 y suma 1 cada vez que clickean el boton de respuesta
     contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
-  }, 1500);
-}
 
-let correctas = 0
-let incorrectas = 0
-let x =1
+    let score = document.getElementById("score") //para marcar las correctas
 
-boton_respuesta.addEventListener("click", function(e){
-
-    e.preventDefault()
-    x++
-    //uso la funcion sacar tildes del principio
-
-    respuesta_del_usuario = sacarTildes(input_respuesta.value)
-    
-    nombre_pais_correcto = sacarTildes(pais_al_azar.name)
-
-    if(respuesta_del_usuario.toLowerCase() == nombre_pais_correcto.toLowerCase()){
-
-        msj_container.innerHTML = `
-        
-        <div class="alert alert-success" role="alert">
-            Excelente! Sigue asi
-        </div>
-        
-        `
-
-        correctas++;
-        localStorage.setItem("puntuacion", correctas)
-
-        score.innerHTML = `
-        
-        puntuación: ${correctas}
-        
-        `
-        numero += 6
-    } else{
-        msj_container.innerHTML = `
-        
-        <div class="alert alert-danger" role="alert">
-            Error, El país era ${pais_al_azar.name}
-        </div>
-
-        `
-        incorrectas++;
-    }
-
-    if(correctas + incorrectas > modoDeJuego){
+    function reiniciar(){
         setTimeout(function () {
-            window.location.href = "puntuacion.html"
-          }, 1000);
-
-    }else{
-        reiniciar()
+        pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
+        document.getElementById('flag-img').src = url(pais_al_azar.abbr)
+        msj_container.innerHTML = ""
+        input_respuesta.value = ""
+        //lo de abajo es mas comodo que este aca para que no spameen el click
+        cuenta_banderas++;
+        contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
+    }, 1500);
     }
 
-    //caso random que un enfermo lo pase 100000 veces
-    if(incorrectas > 0 && modoDeJuego == 100000){
-        setTimeout(function () {
-            window.location.href = "puntuacion.html"
-          }, 1000);
-    }
-    
-})
+    let correctas = 0
+    let incorrectas = 0
+    let x =1
+
+    boton_respuesta.addEventListener("click", function(e){
+
+        e.preventDefault()
+        x++
+        //uso la funcion sacar tildes del principio
+
+        respuesta_del_usuario = sacarTildes(input_respuesta.value)
+        
+        nombre_pais_correcto = sacarTildes(pais_al_azar.name)
+
+        if(respuesta_del_usuario.toLowerCase() == nombre_pais_correcto.toLowerCase()){
+
+            msj_container.innerHTML = `
+            
+            <div class="alert alert-success" role="alert">
+                Excelente! Sigue asi
+            </div>
+            
+            `
+
+            correctas++;
+            localStorage.setItem("puntuacion", correctas)
+
+            score.innerHTML = `
+            
+            puntuación: ${correctas}
+            
+            `
+            numero += 6
+        } else{
+            msj_container.innerHTML = `
+            
+            <div class="alert alert-danger" role="alert">
+                Error, El país era ${pais_al_azar.name}
+            </div>
+
+            `
+            incorrectas++;
+        }
+
+        if(correctas + incorrectas > modoDeJuego){
+            setTimeout(function () {
+                window.location.href = "puntuacion.html"
+            }, 1000);
+
+        }else{
+            reiniciar()
+        }
+
+        //caso random que un enfermo lo pase 100000 veces
+        if(incorrectas > 0 && modoDeJuego == 100000){
+            setTimeout(function () {
+                window.location.href = "puntuacion.html"
+            }, 1000);
+        }
+        
+        
+        //el max_score solo aplica para los modos contrareloj y hardcore
+        let max_score_personal = localStorage.getItem('max-score')
+        console.log(max_score_personal)
+
+        if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
+            localStorage.setItem('max-score', correctas)
+        } else{
+            console.log("neee")
+        }
+
+        })  
 
 }
 
 let modoDeJuego = localStorage.getItem("modo de juego")
-console.log(modoDeJuego)
-
 ////timmer para contrareloj///
 let numero = 60
 let timmer = document.getElementById("timmer-container")
 
-function conteo(){
-    timmer.innerHTML = numero
-    numero--
-    if(numero == 0){
-        clearInterval()
-        window.location.href = "puntuacion.html"
+    function conteo(){
+        timmer.innerHTML = numero
+        numero--
+        if(numero == 0){
+            clearInterval()
+            window.location.href = "puntuacion.html"
+        }
+        if(numero < 10){
+            timmer.style.color = "#ff0000"
+        }else{
+            timmer.style.color = "#000000"
+        }
     }
-    if(numero < 10){
-        timmer.style.color = "#ff0000"
-    }else{
-        timmer.style.color = "#000000"
+
+
+
+    switch (modoDeJuego) {
+
+        case "20":
+                logicaDelJuego(modoDeJuego)
+                break
+
+        case "50":
+                logicaDelJuego(modoDeJuego)
+                break
+
+        case "100":
+                logicaDelJuego(modoDeJuego)
+                break
+
+        case "100000":
+                logicaDelJuego(100000)
+                break
+        case "contrareloj":
+                logicaDelJuego("ထ")
+                let temporizador = setInterval(() =>{
+                    conteo()
+                }, 1000)
+                break
+        
     }
-}
-
-
-
-switch (modoDeJuego) {
-
-    case "20":
-            logicaDelJuego(modoDeJuego)
-            break
-
-    case "50":
-            logicaDelJuego(modoDeJuego)
-            break
-
-    case "100":
-            logicaDelJuego(modoDeJuego)
-            break
-
-    case "100000":
-            logicaDelJuego(100000)
-            break
-    case "contrareloj":
-            logicaDelJuego("ထ")
-            let temporizador = setInterval(() =>{
-                conteo()
-            }, 1000)
-            break
-    
-}

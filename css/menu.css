@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./img/HD-wallpaper-world-flags-blue-england-flag-flagblanc-grunge-red-roug-spain.jpg);
+    background-image: url(../img/HD-wallpaper-world-flags-blue-england-flag-flagblanc-grunge-red-roug-spain.jpg);
 
 }
 
@@ -39,7 +39,8 @@ body {
 }
 
 .titulo{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Bungee Spice', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 26px;
 }
 
 .opciones-container{
