@@ -28,6 +28,8 @@ function logicaDelJuego(modoDeJuego){
 
     let score = document.getElementById("score") //para marcar las correctas
 
+    paises_ya_jugados = [] //aca guardo los que van saliendo para que no se repitan
+
     function reiniciar(){
         setTimeout(function () {
         pais_al_azar = countries[Math.floor(Math.random() * countries.length)];
@@ -48,11 +50,11 @@ function logicaDelJuego(modoDeJuego){
 
         e.preventDefault()
         x++
-        //uso la funcion sacar tildes del principio
-
-        respuesta_del_usuario = sacarTildes(input_respuesta.value)
-        
+        respuesta_del_usuario = sacarTildes(input_respuesta.value) //uso la funcion sacar tildes del principio
         nombre_pais_correcto = sacarTildes(pais_al_azar.name)
+
+        /* paises_ya_jugados.push(nombre_pais_correcto)
+        console.log(paises_ya_jugados) //el array esta creado, falta hacer la condicion para que no repita  */
 
         if(respuesta_del_usuario.toLowerCase() == nombre_pais_correcto.toLowerCase()){
 

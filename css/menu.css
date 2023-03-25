@@ -129,6 +129,8 @@ body {
 
 @media only screen and (max-width: 320px) {
 
+  /* diseño en el menu */
+
   .contenedor{
       width: 250px;
       height: 480px;
