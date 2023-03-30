@@ -27,7 +27,7 @@ body {
     background-color: #FFFFFF;
     width: 500px;
     height: 500px;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .titulo-container{
@@ -132,12 +132,12 @@ body {
   /* diseño en el menu */
 
   .contenedor{
-      width: 250px;
-      height: 480px;
+      width: 300px;
+      height: 500px;
   }
 
   .titulo{
-      font-size: 19px;
+      font-size: 20px;
   }
 
   .opciones-container{

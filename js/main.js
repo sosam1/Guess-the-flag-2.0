@@ -10,8 +10,6 @@ function logicaDelJuego(modoDeJuego){
     //usamos la variable url con el parametro
     document.getElementById('flag-img').src = url(pais_al_azar.abbr)
     
-    //mover despues, intento de hacer que genere opciones funciono//
-
     function generarOpciones(){
 
     let opciones = [pais_al_azar.name]
@@ -28,7 +26,7 @@ function logicaDelJuego(modoDeJuego){
         console.log(opciones)
         opciones_desordenadas = opciones.sort((a, b) => Math.random() -0.5)
         
-        //generador de opciones de respuesta
+    //generador de opciones de respuesta
     let opciones_container = document.getElementById("opciones-respuesta-container")
 
         opciones_container.innerHTML = ""
@@ -57,14 +55,6 @@ function logicaDelJuego(modoDeJuego){
 
         if(opcion0.innerHTML == pais_al_azar.name){
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-success" role="alert">
-                Excelente! Sigue asi
-            </div>
-            
-            `
-
             correctas++;
             localStorage.setItem("puntuacion", correctas)
 
@@ -74,21 +64,31 @@ function logicaDelJuego(modoDeJuego){
             
             `
 
-            opcion0.style.background = "green"
+            opcion0.style.background = "#009929"
 
             numero += 6
             
         }else{
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-danger" role="alert">
-                Error, El país era ${pais_al_azar.name}
-            </div>
-
-            `
             incorrectas++;
-            opcion0.style.background = "red"
+            opcion0.style.background = "#f52b14"
+
+            //busco el correcto (de forma tosca)//
+
+            if(opcion1.innerHTML == pais_al_azar.name){
+                opcion1.style.background = "#009929"
+            }
+
+            if(opcion2.innerHTML == pais_al_azar.name){
+                opcion2.style.background = "#009929"
+            }
+
+            if(opcion3.innerHTML == pais_al_azar.name){
+                opcion3.style.background = "#009929"
+            }
+
+            //termina busqueda//
+
         }
 
         if(correctas + incorrectas > modoDeJuego){
@@ -128,14 +128,6 @@ function logicaDelJuego(modoDeJuego){
 
         if(opcion1.innerHTML == pais_al_azar.name){
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-success" role="alert">
-                Excelente! Sigue asi
-            </div>
-            
-            `
-
             correctas++;
             localStorage.setItem("puntuacion", correctas)
 
@@ -144,25 +136,34 @@ function logicaDelJuego(modoDeJuego){
             puntuación: ${correctas}
             
             `
-            opcion1.style.background = "green"
+            opcion1.style.background = "#009929"
 
             numero += 6
             
         }else{
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-danger" role="alert">
-                Error, El país era ${pais_al_azar.name}
-            </div>
-
-            `
             incorrectas++;
-            opcion1.style.background = "red"
+            opcion1.style.background = "#f52b14"
+
+            //busco el correcto (de forma tosca)//
+
+            if(opcion0.innerHTML == pais_al_azar.name){
+                opcion0.style.background = "#009929"
+            }
+
+            if(opcion2.innerHTML == pais_al_azar.name){
+                opcion2.style.background = "#009929"
+            }
+
+            if(opcion3.innerHTML == pais_al_azar.name){
+                opcion3.style.background = "#009929"
+            }
+
+            //termina busqueda//
 
         }
 
-        if(correctas + incorrectas > modoDeJuego){
+        if(correctas + incorrectas >= modoDeJuego){
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -173,7 +174,6 @@ function logicaDelJuego(modoDeJuego){
 
         //caso random que un enfermo lo pase 100000 veces
         if(incorrectas > 0 && modoDeJuego == 100000){
-            console.log("ads")
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -186,9 +186,7 @@ function logicaDelJuego(modoDeJuego){
 
         if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
-        } else{
-            console.log("neee")
-        }
+        } 
         
 
     })
@@ -199,14 +197,6 @@ function logicaDelJuego(modoDeJuego){
 
         if(opcion2.innerHTML == pais_al_azar.name){
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-success" role="alert">
-                Excelente! Sigue asi
-            </div>
-            
-            `
-
             correctas++;
             localStorage.setItem("puntuacion", correctas)
 
@@ -215,21 +205,30 @@ function logicaDelJuego(modoDeJuego){
             puntuación: ${correctas}
             
             `
-            opcion2.style.background = "green"
+            opcion2.style.background = "#009929"
 
             numero += 6
             
         }else{
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-danger" role="alert">
-                Error, El país era ${pais_al_azar.name}
-            </div>
-
-            `
             incorrectas++;
-            opcion2.style.background = "red"
+            opcion2.style.background = "#f52b14"
+
+            //busco el correcto (de forma tosca)//
+
+            if(opcion0.innerHTML == pais_al_azar.name){
+                opcion0.style.background = "#009929"
+            }
+
+            if(opcion1.innerHTML == pais_al_azar.name){
+                opcion1.style.background = "#009929"
+            }
+
+            if(opcion3.innerHTML == pais_al_azar.name){
+                opcion3.style.background = "#009929"
+            }
+
+            //termina busqueda//
 
         }
 
@@ -257,9 +256,7 @@ function logicaDelJuego(modoDeJuego){
 
         if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
-        } else{
-            console.log("neee")
-        }
+        } 
         
 
     })
@@ -270,14 +267,6 @@ function logicaDelJuego(modoDeJuego){
 
         if(opcion3.innerHTML == pais_al_azar.name){
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-success" role="alert">
-                Excelente! Sigue asi
-            </div>
-            
-            `
-
             correctas++;
             localStorage.setItem("puntuacion", correctas)
 
@@ -286,21 +275,30 @@ function logicaDelJuego(modoDeJuego){
             puntuación: ${correctas}
             
             `
-            opcion3.style.background = "green"
+            opcion3.style.background = "#009929"
 
             numero += 6
             
         }else{
 
-            msj_container.innerHTML = `
-            
-            <div class="alert alert-danger" role="alert">
-                Error, El país era ${pais_al_azar.name}
-            </div>
-
-            `
             incorrectas++;
-            opcion3.style.background = "red"
+            opcion3.style.background = "#f52b14"
+
+            //busco el correcto (de forma tosca)//
+
+            if(opcion0.innerHTML == pais_al_azar.name){
+                opcion0.style.background = "#009929"
+            }
+
+            if(opcion1.innerHTML == pais_al_azar.name){
+                opcion1.style.background = "#009929"
+            }
+
+            if(opcion2.innerHTML == pais_al_azar.name){
+                opcion2.style.background = "#009929"
+            }
+
+            //termina busqueda//
 
         }
 
@@ -315,7 +313,6 @@ function logicaDelJuego(modoDeJuego){
 
         //caso random que un enfermo lo pase 100000 veces
         if(incorrectas > 0 && modoDeJuego == 100000){
-            console.log("ads")
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -328,21 +325,15 @@ function logicaDelJuego(modoDeJuego){
 
         if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
-        } else{
-            console.log("neee")
-        }
+        } 
         
 
     })
-
-
     }
 
     logicaBotonesRespuesta()
    
     ////Aca empieza la logica a partir de la respuesta ////
-
-    let msj_container = document.getElementById("mensaje-container")
     let contador_de_banderas = document.getElementById("contador-de-banderas") // muestra cuantas banderas se van respondiendo
     let cuenta_banderas = 0 //empieza siendo 0 y suma 1 cada vez que clickean el boton de respuesta
     contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
@@ -355,7 +346,6 @@ function logicaDelJuego(modoDeJuego){
         document.getElementById('flag-img').src = url(pais_al_azar.abbr)
         generarOpciones()
         logicaBotonesRespuesta()
-        msj_container.innerHTML = ""
         //lo de abajo es mas comodo que este aca para que no spameen el click
         cuenta_banderas++;
         contador_de_banderas.innerHTML = `${cuenta_banderas} / ${modoDeJuego}`
