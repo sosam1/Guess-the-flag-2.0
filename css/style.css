@@ -80,6 +80,7 @@ body {
     border: solid 1px black;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
+    text-transform: capitalize;
 }
 
 /* responsive */
@@ -88,7 +89,7 @@ body {
 
     .contenedor{
         width: 300px;
-        height: 600px;
+        height: 550px;
     }
 
     .container-image{
@@ -101,7 +102,7 @@ body {
     }
 
     .puntuacion{
-        margin: 20px 40px 0px 0px;
+        margin: 0px 40px 0px 0px;
     }
 
     .contador{
@@ -118,9 +119,10 @@ body {
     
     .btn-opcion{
         width: 220px;
-        height: 30px;
+        height: 35px;
         margin: auto;
         margin-top: 25px;
+        font-size: 14px;
     }
     
 
@@ -130,7 +132,7 @@ body {
 
     .contenedor{
         width: 320px;
-        height: 650px;
+        height: 550px;
     }
   
     .container-image{
@@ -161,6 +163,7 @@ body {
         height: 35px;
         margin: auto;
         margin-top: 25px;
+        font-size: 16px;
     }
 
     .titulo-container p{

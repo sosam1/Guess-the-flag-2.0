@@ -9,7 +9,7 @@ function logicaDelJuego(modoDeJuego){
 
     //usamos la variable url con el parametro
     document.getElementById('flag-img').src = url(pais_al_azar.abbr)
-    
+
     function generarOpciones(){
 
     let opciones = [pais_al_azar.name]
@@ -23,7 +23,7 @@ function logicaDelJuego(modoDeJuego){
                 i--; //si no esta esto y se repite un pais va generar menos opciones
             }
         }
-        console.log(opciones)
+        /* console.log(opciones) */
         opciones_desordenadas = opciones.sort((a, b) => Math.random() -0.5)
         
     //generador de opciones de respuesta
@@ -66,7 +66,7 @@ function logicaDelJuego(modoDeJuego){
 
             opcion0.style.background = "#009929"
 
-            numero += 6
+            numero += 3
             
         }else{
 
@@ -101,8 +101,7 @@ function logicaDelJuego(modoDeJuego){
         }
 
         //caso random que un enfermo lo pase 100000 veces
-        if(incorrectas > 0 && modoDeJuego == 100000){
-            console.log("ads")
+        if(incorrectas > 0 && modoDeJuego == "?"){
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -111,15 +110,10 @@ function logicaDelJuego(modoDeJuego){
         
         //el max_score solo aplica para los modos contrareloj y hardcore
         let max_score_personal = localStorage.getItem('max-score')
-        console.log(max_score_personal)
 
-        if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
+        if((modoDeJuego == "?" || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
-        } else{
-            console.log("neee")
         }
-        
-
     })
 
     ///por favor si lees esto hace una funcion para que todo esto no se repita, se pueden ahorrar facil 100 lineas
@@ -138,7 +132,7 @@ function logicaDelJuego(modoDeJuego){
             `
             opcion1.style.background = "#009929"
 
-            numero += 6
+            numero += 3
             
         }else{
 
@@ -173,7 +167,7 @@ function logicaDelJuego(modoDeJuego){
         }
 
         //caso random que un enfermo lo pase 100000 veces
-        if(incorrectas > 0 && modoDeJuego == 100000){
+        if(incorrectas > 0 && modoDeJuego == "?"){
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -182,9 +176,8 @@ function logicaDelJuego(modoDeJuego){
         
         //el max_score solo aplica para los modos contrareloj y hardcore
         let max_score_personal = localStorage.getItem('max-score')
-        console.log(max_score_personal)
 
-        if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
+        if((modoDeJuego == "?" || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
         } 
         
@@ -207,7 +200,7 @@ function logicaDelJuego(modoDeJuego){
             `
             opcion2.style.background = "#009929"
 
-            numero += 6
+            numero += 3
             
         }else{
 
@@ -242,8 +235,7 @@ function logicaDelJuego(modoDeJuego){
         }
 
         //caso random que un enfermo lo pase 100000 veces
-        if(incorrectas > 0 && modoDeJuego == 100000){
-            console.log("ads")
+        if(incorrectas > 0 && modoDeJuego == "?"){
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -252,9 +244,8 @@ function logicaDelJuego(modoDeJuego){
         
         //el max_score solo aplica para los modos contrareloj y hardcore
         let max_score_personal = localStorage.getItem('max-score')
-        console.log(max_score_personal)
 
-        if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
+        if((modoDeJuego == "?" || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
         } 
         
@@ -277,7 +268,7 @@ function logicaDelJuego(modoDeJuego){
             `
             opcion3.style.background = "#009929"
 
-            numero += 6
+            numero += 3
             
         }else{
 
@@ -312,7 +303,7 @@ function logicaDelJuego(modoDeJuego){
         }
 
         //caso random que un enfermo lo pase 100000 veces
-        if(incorrectas > 0 && modoDeJuego == 100000){
+        if(incorrectas > 0 && modoDeJuego == "?"){
             setTimeout(function () {
                 window.location.href = "puntuacion.html"
             }, 1000);
@@ -321,9 +312,8 @@ function logicaDelJuego(modoDeJuego){
         
         //el max_score solo aplica para los modos contrareloj y hardcore
         let max_score_personal = localStorage.getItem('max-score')
-        console.log(max_score_personal)
 
-        if((modoDeJuego == 100000 || modoDeJuego == "contrareloj") && correctas > max_score_personal){
+        if((modoDeJuego == "?" || modoDeJuego == "contrareloj") && correctas > max_score_personal){
             localStorage.setItem('max-score', correctas)
         } 
         
@@ -360,7 +350,7 @@ function logicaDelJuego(modoDeJuego){
 
 let modoDeJuego = localStorage.getItem("modo de juego")
 ////timmer para contrareloj///
-let numero = 60
+let numero = 15
 let timmer = document.getElementById("timmer-container")
 
     function conteo(){
@@ -392,7 +382,7 @@ let timmer = document.getElementById("timmer-container")
                 break
 
         case "100000":
-                logicaDelJuego(100000)
+                logicaDelJuego("?")
                 break
         case "contrareloj":
                 logicaDelJuego("ထ")
