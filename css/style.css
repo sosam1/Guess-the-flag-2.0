@@ -89,7 +89,7 @@ body {
 
     .contenedor{
         width: 300px;
-        height: 550px;
+        height: 580px;
     }
 
     .container-image{
@@ -102,11 +102,11 @@ body {
     }
 
     .puntuacion{
-        margin: 0px 40px 0px 0px;
+        margin: 15px 50px 0px 0px;
     }
 
     .contador{
-        margin: 20px 0px 0px 0px;
+        margin: 15px 0px 0px 0px;
     }
 
     .titulo-container p{
@@ -115,6 +115,7 @@ body {
 
     .timmer{
         font-size: 25px;
+        margin: 0px 0px 10px 0px;
     }
     
     .btn-opcion{
@@ -132,7 +133,7 @@ body {
 
     .contenedor{
         width: 320px;
-        height: 550px;
+        height: 600px;
     }
   
     .container-image{
@@ -146,16 +147,17 @@ body {
 
     .puntuacion{
         font-size: 25px;
-        margin: 20px 15px 0px 0px
+        margin: 20px 10px 0px 0px;
     }
 
     .contador{
         font-size: 25px;
-        margin: 20px 0px 0px 15px
+        margin: 20px 0px 0px 25px
     }
 
     .timmer{
         font-size: 30px;
+        margin: 0px 0px 10px 0px;
     }
 
     .btn-opcion{
@@ -170,17 +172,13 @@ body {
         font-size: 24px;
     }
 
-    .puntuacion{
-        margin: 20px 60px 0px 0px;
-    }
-
   }
 
 @media only screen and (min-width: 768px) {
 
     .contenedor{
-        width: 550px;
-        height: 700px;
+        width: 500px;
+        height: 750px;
     }
   
     .titulo{
@@ -198,12 +196,17 @@ body {
 
     .puntuacion{
         font-size: 50px;
-        margin: 20px 15px 0px 0px
+        margin: 20px 20px 0px 0px
     }
 
     .contador{
         font-size: 50px;
         margin: 20px 0px 0px 15px
+    }
+
+    .timmer{
+        margin: 0px 0px 10px 0px;
+        font-size: 3rem;
     }
     
 

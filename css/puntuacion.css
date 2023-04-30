@@ -27,12 +27,11 @@ body {
     background-color: #FFFFFF;
     width: 500px;
     height: 500px;
-    border-radius: 4px;
-    border: solid 1px black;
+    border-radius: 10px;
 }
 
 .titulo{
-    margin: 50px;
+    margin: 50px 50px 30px 50px;
     font-family: 'Bungee Spice', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 32px;
 }
@@ -119,3 +118,80 @@ body {
   .boton-opcion:disabled {
     cursor: auto;
   }
+
+  #puntuacion{
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  #max-score{
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  /*responsive*/
+
+  @media only screen and (max-width: 320px) {
+
+    .contenedor{
+      width: 250px;
+    }
+
+    .titulo{
+      font-size: 22px;
+      margin: 50px 0px 20px 0px;
+
+    }
+
+    .opciones-container{
+      width: 200px;
+    }
+
+    .boton-opcion{
+      height: 45px;
+    }
+
+    #puntuacion{
+      font-size: 25px;
+    }
+
+    #max-score{
+      font-size: 20px;
+    }
+
+  }
+
+  @media only screen and (min-width: 375px) and (max-width: 425px) {
+
+    .contenedor{
+      width: 300px;
+    }
+
+    .titulo{
+      font-size: 25px;
+      margin: 50px 0px 20px 0px;
+
+    }
+
+    .opciones-container{
+      width: 200px;
+    }
+
+    .boton-opcion{
+      height: 45px;
+    }
+
+    #puntuacion{
+      font-size: 25px;
+    }
+
+    #max-score{
+      font-size: 20px;
+    }
+
+  }
+
+  @media only screen and (min-width: 768px) {
+
+
+  } 
